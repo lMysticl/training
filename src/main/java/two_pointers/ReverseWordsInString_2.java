@@ -1,11 +1,14 @@
-package training2;
+package two_pointers;
+/*Given an input string, reverse the string word by word. A word is defined as a sequence of non-space characters.
 
-public class ReverseWordsInString {
+The input string does not contain leading or trailing spaces and the words are always separated by a single space.
 
+For example,
+Given s = "the sky is blue",
+return "blue is sky the".
 
-
-
-
+Could you do it in-place without allocating extra space?*/
+public class ReverseWordsInString_2 {
 
     public static void main(String[] args) {
         reverseWord();

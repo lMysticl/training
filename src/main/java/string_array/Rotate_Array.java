@@ -15,7 +15,8 @@ public class Rotate_Array {
         rotate(arr,order);
 
     }
-
+//This method realization is :
+// Move the last one number to begin while the order number is over. "order=3 (3 times)"
     private static void rotate(int[] arr, int order) {
         if (arr == null || order < 0) {
             throw new IllegalArgumentException("Illegal argument!");

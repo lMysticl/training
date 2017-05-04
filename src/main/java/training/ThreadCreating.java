@@ -1,4 +1,4 @@
-package training2;
+package training;
 
 
 import java.util.concurrent.*;

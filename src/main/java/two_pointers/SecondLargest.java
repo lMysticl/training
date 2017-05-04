@@ -1,4 +1,4 @@
-package training2;
+package two_pointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;

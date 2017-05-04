@@ -1,4 +1,4 @@
-package training2;
+package two_pointers;
 
 public class factorial {
 

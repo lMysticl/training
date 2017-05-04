@@ -1,4 +1,4 @@
-package training2;
+package training;
 
 public class TestIF {
     public static void main(String[] args) {
