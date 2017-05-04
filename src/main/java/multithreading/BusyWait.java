@@ -16,6 +16,7 @@ public class BusyWait {
                 synchronized (monitor) {
                   in =true;
                     try {
+                        //Поток не отпускает монитоор
                         Thread.sleep(Long.MAX_VALUE);
                     } catch (InterruptedException ignore) {/*NOP*/}
                 }
