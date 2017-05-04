@@ -1,6 +1,6 @@
 package multithreading;
 
-public class BysuWait {
+public class BusyWait {
 
 
     private volatile static boolean in=false;
