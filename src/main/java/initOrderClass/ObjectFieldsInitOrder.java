@@ -1,4 +1,4 @@
-package two_pointers;
+package initOrderClass;
 
 public class ObjectFieldsInitOrder {
     static int initialize(String message) {

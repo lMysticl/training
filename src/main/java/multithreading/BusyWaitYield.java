@@ -1,31 +1,32 @@
 package multithreading;
 
-public class BusyWait {
+
+public class BusyWaitYield {
 
 
-    private volatile static boolean in=false;
+    private volatile static boolean in = false;
 
     public static void main(String[] args) {
         final Object monitor = new Object();
-     
+
 
         new Thread(new Runnable() {
             @Override
             public void run() {
                 //поток будет заблокирован на попытке захватить монитор
                 synchronized (monitor) {
-                  in =true;
-                    try {
-                        //Поток не отпускает монитоор
-                        Thread.sleep(Long.MAX_VALUE);
-                    } catch (InterruptedException ignore) {/*NOP*/}
+                    in = true;
+
+                    while (true) {
+                        Thread.yield();//прерываем поток
+                    }
                 }
             }
         }).start();
         System.out.println("A");
-        while (!in);//spin lock /busy waiting
+        while (!in) ;//spin lock /busy waiting
         System.out.println("B");
-        synchronized (monitor){
+        synchronized (monitor) {
             System.out.println("C");
         }
     }

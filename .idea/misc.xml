@@ -8,4 +8,10 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8_0_121" project-jdk-type="JavaSDK" />
+  <component name="Struts Navigator">
+    <option name="strutsConfigFile" />
+    <option name="strutsTilesFile" />
+    <option name="strutsValidatorFiles" />
+    <option name="enable" value="false" />
+  </component>
 </project>

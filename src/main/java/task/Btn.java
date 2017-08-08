@@ -29,5 +29,7 @@ public class Btn implements Comparable<Btn>{
         int re = (right != null) ? right.compareTo(o.right) : o.right == null ? 0 : -1;
 
         return (le == 0 || re == 0) ? re + le : re * le;
+
     }
 }
+
