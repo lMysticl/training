@@ -3,7 +3,7 @@ package work_task;
 /**
  * @author Pavel Putrenkov
  */
-public class work_task {
+public class work_task implements f{
 
 
     static int  F1(int a, int b) {
@@ -22,11 +22,19 @@ public class work_task {
         return Result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         System.out.println((F1(F2(5, 4) + 2, 7)));
 
-
+        f.m();
     }
 
+}
+
+
+interface f{
+   final static Integer d =10;
+     static  void   m(){
+        System.out.println("hello");
+    }
 }
