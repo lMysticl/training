@@ -25,5 +25,10 @@ hs_err_pid*
 
 .gitignore
 .idea/workspace.xml
-src/resources/
 target/
+.idea/dataSources.local.xml
+.idea/inspectionProfiles/
+lib/
+src/main/java/collections/hashset/
+src/main/java/collections/the_list/
+src/main/java/collections/the_tree/
