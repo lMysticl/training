@@ -1,4 +1,4 @@
-package collections.TheStack;
+package collections.the_stack;
 
 import java.util.Arrays;
 // Arrays, linked lists, trees, etc. are best for

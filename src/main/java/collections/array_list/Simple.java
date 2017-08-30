@@ -1,4 +1,4 @@
-package collections.arrayList;
+package collections.array_list;
 
 /**
  * @author Pavel Putrenkov
