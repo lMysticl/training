@@ -10,14 +10,14 @@ public class TheQueue_2 {
     private int front;
     private int rear;
 
-    public TheQueue_2(int maxSize) {
+    private TheQueue_2(int maxSize) {
         this.maxSize = maxSize;
         queue = new int[maxSize];
         rear = -1;
         front = 0;
         nElem = 0;
     }
-    public void insert(int elem) {
+    private void insert(int elem) {
         if (rear == maxSize - 1) {  // циклический перенос
             rear = -1;
         }
@@ -25,7 +25,7 @@ public class TheQueue_2 {
         queue[++rear] = elem;  //увеличение Rear и вставка
         nElem++;  // увеличение количества элементов в очереди
     }
-    public int remove() {
+    private int remove() {
         int temp = queue[front++]; // получаем первый элемент из очереди
 
         if (front == maxSize) { // циклический перенос
@@ -71,7 +71,7 @@ public class TheQueue_2 {
         return (nElem == maxSize - 1);
     }
 
-    public boolean isEmpty() {
+    private boolean isEmpty() {
         return (nElem == 0);
     }
 
