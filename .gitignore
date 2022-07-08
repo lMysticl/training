@@ -32,3 +32,6 @@ lib/
 src/main/java/collections/hashset/
 src/main/java/collections/the_list/
 src/main/java/collections/the_tree/
+src/resources/test/task/AbstractSample.java
+src/resources/test/task/StreamSample.java
+java

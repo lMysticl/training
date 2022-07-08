@@ -1,4 +1,5 @@
 package two_pointers;
+
 /*Given an input string, reverse the string word by word. A word is defined as a sequence of non-space characters.
 
 The input string does not contain leading or trailing spaces and the words are always separated by a single space.
@@ -14,9 +15,10 @@ public class ReverseWordsInString_2 {
         reverseWord();
         reversWord2();
 
-        System.out.println("\n"+recursiveMethod("MyJava"));
+        System.out.println("\n" + recursiveMethod("MyJava"));
 
     }
+
     private static void reverseWord() {
         StringBuffer sbf = new StringBuffer("MyJava");
         System.out.println(sbf.reverse());
@@ -27,18 +29,14 @@ public class ReverseWordsInString_2 {
 
         char[] strArray = str.toCharArray();
 
-        for (int i = strArray.length - 1; i >= 0; i--)
-        {
+        for (int i = strArray.length - 1; i >= 0; i--) {
             System.out.print(strArray[i]);     //Output : avaJyM
         }
     }
 
 
-
-   private static String recursiveMethod(String str)
-    {
-        if ((null == str) || (str.length() <= 1))
-        {
+    private static String recursiveMethod(String str) {
+        if ((null == str) || (str.length() <= 1)) {
             return str;
         }
 

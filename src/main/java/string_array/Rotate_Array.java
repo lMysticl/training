@@ -10,22 +10,23 @@ public class Rotate_Array {
 
     public static void main(String[] args) {
 
-        int[] arr={1,2,3,4,5,6,7};
-        int order =3;
-        rotate(arr,order);
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        int order = 3;
+        rotate(arr, order);
 
     }
-//This method realization is :
+
+    //This method realization is :
 // Move the last one number to begin while the order number is over. "order=3 (3 times)"
     private static void rotate(int[] arr, int order) {
         if (arr == null || order < 0) {
             throw new IllegalArgumentException("Illegal argument!");
         }
-            //3 times roll
+        //3 times roll
         for (int i = 0; i < order; i++) {
-                //6 times roll till first then 5 ,4...1 of element
+            //6 times roll till first then 5 ,4...1 of element
             for (int j = arr.length - 1; j > 0; j--) {
-                System.out.println( arr[j]);
+                System.out.println(arr[j]);
 
                 int temp = arr[j];
                 arr[j] = arr[j - 1];

@@ -8,9 +8,9 @@ import java.util.Collection;
 
 public class TestTask2 {
     private Element element1;
-    private Element  element2;
-    private Element  element3;
-    private ArrayList<Element> elements= new ArrayList<>();
+    private Element element2;
+    private Element element3;
+    private ArrayList<Element> elements = new ArrayList<>();
     private Collection<Element> elements1;
 
     @Before

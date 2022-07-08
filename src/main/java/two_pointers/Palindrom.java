@@ -7,19 +7,30 @@ public class Palindrom {
     public static int recursion(int n) {
         if (n < 10) {
             return n;
-        }
-        else {
+        } else {
             System.out.print(n % 10 + " ");
             return recursion(n / 10);
         }
     }
+
     public static void main(String[] args) {
-        System.out.println(recursion(123));
+        long timeStart = System.currentTimeMillis();
+
+//        System.out.println(recursion(123));
+
+//        isPalindrome("123321123321123321123321123321");
+
+        isPalindrome2("123321123321123321123321123321");
+
+        long timeEnd = System.currentTimeMillis();
+
+        System.out.println("Took "+(timeEnd - timeStart)+" ms");
+
     }
 
     public static boolean isPalindrome(String text) {
-        return text.replaceAll("\\W","")
-                .equalsIgnoreCase(new StringBuilder(text.replaceAll("\\W",""))
+        return text.replaceAll("\\W", "")
+                .equalsIgnoreCase(new StringBuilder(text.replaceAll("\\W", ""))
                         .reverse().toString());
     }
 

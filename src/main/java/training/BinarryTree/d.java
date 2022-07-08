@@ -3,8 +3,8 @@ package training.BinarryTree;
 /**
  * @author Pavel Putrenkov
  */
-public class d<Sting,Integer,Double> {
-//    public static void main(String[] args) {
+public class d<Sting, Integer, Double> {
+    //    public static void main(String[] args) {
 //
 //        int[] a = new int[10];
 //
@@ -13,51 +13,49 @@ public class d<Sting,Integer,Double> {
 //        a[5] = a[2] / 0;
 //
 //    }
-public void main(String[] args) {
+    public void main(String[] args) {
 
-    Thread t1 = new Thread(new Runnable() {
+        Thread t1 = new Thread(new Runnable() {
 
-        @Override
+            @Override
 
-        public void run() {
+            public void run() {
 
-            System.out.println(1);
-
-        }
-
-    });
-
-    Thread t2 = new Thread(new Runnable() {
-
-        @Override
-
-        public void run() {
-
-            try {
-
-                t1.join();
-
-            } catch (InterruptedException e) {
-
-                e.printStackTrace();
+                System.out.println(1);
 
             }
 
-            System.out.println(2);
+        });
 
-        }
+        Thread t2 = new Thread(new Runnable() {
 
-    });
+            @Override
 
-    t1.start();
+            public void run() {
 
-    t2.start();
-t1.interrupt();
+                try {
+
+                    t1.join();
+
+                } catch (InterruptedException e) {
+
+                    e.printStackTrace();
+
+                }
+
+                System.out.println(2);
+
+            }
+
+        });
+
+        t1.start();
+
+        t2.start();
+        t1.interrupt();
 
 
-
-
-}
+    }
 
 }
 

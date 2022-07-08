@@ -17,24 +17,6 @@ public class TheQueue_2 {
         front = 0;
         nElem = 0;
     }
-    private void insert(int elem) {
-        if (rear == maxSize - 1) {  // циклический перенос
-            rear = -1;
-        }
-
-        queue[++rear] = elem;  //увеличение Rear и вставка
-        nElem++;  // увеличение количества элементов в очереди
-    }
-    private int remove() {
-        int temp = queue[front++]; // получаем первый элемент из очереди
-
-        if (front == maxSize) { // циклический перенос
-            front = 0;
-        }
-        nElem--; // уменьшаем количество элементов в очереди
-        return temp;
-
-    }
 
     public static void main(String[] args) {
         TheQueue_2 myQueue = new TheQueue_2(5);
@@ -58,6 +40,25 @@ public class TheQueue_2 {
 
     }
 
+    private void insert(int elem) {
+        if (rear == maxSize - 1) {  // циклический перенос
+            rear = -1;
+        }
+
+        queue[++rear] = elem;  //увеличение Rear и вставка
+        nElem++;  // увеличение количества элементов в очереди
+    }
+
+    private int remove() {
+        int temp = queue[front++]; // получаем первый элемент из очереди
+
+        if (front == maxSize) { // циклический перенос
+            front = 0;
+        }
+        nElem--; // уменьшаем количество элементов в очереди
+        return temp;
+
+    }
 
     public int getFront() {
         return queue[front];

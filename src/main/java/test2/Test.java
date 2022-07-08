@@ -3,11 +3,10 @@ package test2;
 /**
  * @author Pavel Putrenkov
  */
- class Test {
+class Test {
 
     public String format(String value) {
         return "[" + value + "]";
-
 
 
     }

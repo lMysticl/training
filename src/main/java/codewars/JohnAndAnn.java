@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
 /*https://www.codewars.com/kata/john-and-ann-sign-up-for-codewars/train/java
 https://www.codewars.com/kata/57591ef494aba64d14000526/solutions/java
 
@@ -44,7 +45,7 @@ public class JohnAndAnn {
         annKatas.put(1L, 1L);
     }
 
-    public static void calculateUpTo(long n){
+    public static void calculateUpTo(long n) {
         for (; maxN <= n; maxN++) {
             annKatas.putIfAbsent(maxN, maxN - johnKatas.get(annKatas.get(maxN - 1)));
             johnKatas.putIfAbsent(maxN, maxN - annKatas.get(johnKatas.get(maxN - 1)));
@@ -55,6 +56,7 @@ public class JohnAndAnn {
         calculateUpTo(n);
         return johnKatas.values().stream().limit(n).collect(Collectors.toList());
     }
+
     public static List<Long> ann(long n) {
         calculateUpTo(n);
         return annKatas.values().stream().limit(n).collect(Collectors.toList());

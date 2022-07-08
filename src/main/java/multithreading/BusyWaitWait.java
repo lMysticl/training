@@ -3,7 +3,7 @@ package multithreading;
 
 public class BusyWaitWait {
 
-    private volatile static boolean in=false;
+    private volatile static boolean in = false;
 
     public static void main(String[] args) throws InterruptedException {
         final Object monitor = new Object();
@@ -14,7 +14,7 @@ public class BusyWaitWait {
             public void run() {
                 //поток будет заблокирован на попытке захватить монитор
                 synchronized (monitor) {
-                  in =true;
+                    in = true;
                     try {
                         System.out.println("X");
                         monitor.wait();//поток перестает выполнятся. Другой поток может зайти с synchronized и ввыполнится. Монитор отпущен.
@@ -25,9 +25,9 @@ public class BusyWaitWait {
             }
         }).start();
         System.out.println("A");
-        while (!in);//spin lock /busy waiting
+        while (!in) ;//spin lock /busy waiting
         System.out.println("B");
-        synchronized (monitor){
+        synchronized (monitor) {
             System.out.println("C");
             monitor.notify();//даже разбудив поток все равно выполнится D
 //            monitor.wait();

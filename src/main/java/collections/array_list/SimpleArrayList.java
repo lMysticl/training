@@ -7,6 +7,13 @@ import java.util.Iterator;
  */
 public class SimpleArrayList<E> implements Simple<E> {
 
+    private E[] values;
+    private E[] temp;
+    public SimpleArrayList() {
+
+        values = (E[]) new Object[0];
+    }
+
     public static void main(String[] args) {
         Simple<String> strings = new SimpleArrayList<>();
         strings.add("first");
@@ -18,15 +25,6 @@ public class SimpleArrayList<E> implements Simple<E> {
         strings.delete(0);
         System.out.println(strings.get(0));
         System.out.println(strings.size());
-    }
-
-    private E[] values;
-    private E[] temp;
-
-
-    public SimpleArrayList() {
-
-        values = (E[]) new Object[0];
     }
 
     @Override
@@ -51,12 +49,12 @@ public class SimpleArrayList<E> implements Simple<E> {
 
     @Override
     public void delete(int index) {
-        try{
-        temp = upInSizeArray();
-        System.arraycopy(temp, 0, values, 0, index);
-        int amountElementAfterIndex = temp.length - index - 1;
-        System.arraycopy(temp, index + 1, values, index, amountElementAfterIndex);}
-        catch (ClassCastException ex){
+        try {
+            temp = upInSizeArray();
+            System.arraycopy(temp, 0, values, 0, index);
+            int amountElementAfterIndex = temp.length - index - 1;
+            System.arraycopy(temp, index + 1, values, index, amountElementAfterIndex);
+        } catch (ClassCastException ex) {
             ex.printStackTrace();
         }
     }

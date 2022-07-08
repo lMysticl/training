@@ -1,4 +1,5 @@
 package two_pointers;
+
 /*Rotate Array in Java
 
 Rotate an array of n elements to the right by k steps.
@@ -18,7 +19,6 @@ public class RotateArray_1 {
             }
         }
     }
-
 
 
 }

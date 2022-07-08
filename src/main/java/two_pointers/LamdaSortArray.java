@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import static com.sun.deploy.trace.Trace.print;
 
 public class LamdaSortArray {
     public static void main(String[] args) {
@@ -64,16 +63,16 @@ public class LamdaSortArray {
         System.out.println("CurentTime: " + today);
     }
 
-    private static void tryFinally(){
+    private static void tryFinally() {
         try {
             System.out.println("TRY");
-        }finally {
+        } finally {
             System.out.println("FINALLY");
         }
     }
 
 
-    static class whatFirst{
+    static class whatFirst {
 //        В итоге в выводе получаем:
 //        s1 [Class A] In static fields
 //        s2 [Class A] In static fields
@@ -92,44 +91,42 @@ public class LamdaSortArray {
     }
 
 
-     static class Insect {
-            private int i = 9;                                                      // [9]
-            protected int j;                                                        // [10]
+    static class Insect {
+        private static int x1 = printInit("static Insect.x1 initialized");   // [2]
+        protected int j;                                                        // [10]
+        private int i = 9;                                                      // [9]
 
-            Insect() {                                                              // [8]
-                print("i = " + i + ", j = " + j);                                   // [11]
-                j = 39;                                                             // [12]
-            }
-
-            private static int x1 = printInit("static Insect.x1 initialized");   // [2]
-
-            static int printInit(String s) {                                        // [3]
-                print(s);
-                return 47;
-            }
+        Insect() {                                                              // [8]
+            System.out.println(("i = " + i + ", j = " + j));
+            j = 39;                                                             // [12]
         }
 
-        public static class Beetle extends Insect {
-            private int k = printInit("Beetle.k initialized");                   // [13]
-
-            public Beetle() {                                                       // [7]
-                print("k = " + k);                                     // [14]
-                print("j = " + j);                                     // [15]
-            }
-
-            private static int x2 = printInit("static Beetle.x2 initialized");   // [4]
-
-            public static void main(String[] args) {                                // [1]
-                print("Beetle constructor");                                        // [5]
-                Beetle b = new Beetle();                                            // [6]
-            }
+        static int printInit(String s) {                                        // [3]
+            System.out.println(s);
+            return 47;
         }
-          //  1)  Статические элементы родителя
-          //  2)  Статические элементы наследника
-          //  3)  Глобальные переменные родителя
-          //  4)  Конструктор родителя
-          //  5)  Глобальные переменные наследника
-          //  6)  Конструктор наследника
+    }
+
+    public static class Beetle extends Insect {
+        private static int x2 = printInit("static Beetle.x2 initialized");   // [4]
+        private int k = printInit("Beetle.k initialized");                   // [13]
+
+        public Beetle() {                                                       // [7]
+            System.out.println("k = " + k);                                     // [14]
+            System.out.println("j = " + j);                                     // [15]
+        }
+
+        public static void main(String[] args) {                                // [1]
+            System.out.println("Beetle constructor");                                        // [5]
+            Beetle b = new Beetle();                                            // [6]
+        }
+    }
+    //  1)  Статические элементы родителя
+    //  2)  Статические элементы наследника
+    //  3)  Глобальные переменные родителя
+    //  4)  Конструктор родителя
+    //  5)  Глобальные переменные наследника
+    //  6)  Конструктор наследника
 
 }
 

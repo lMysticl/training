@@ -11,6 +11,7 @@ import java.util.Arrays;
 // 1. Allow only a single item to be added or removed at a time
 // 2. Stacks allow access to the last item inserted (LIFO)
 // 3. Queues allow access to the first item inserted (FIFO)
+
 /**
  * @author Pavel Putrenkov
  */
@@ -21,56 +22,71 @@ public class TheStack {
     private int topOfStack = -1;
 
     private TheStack(int size) {
-        stackSize =size;
-        stackArray = new String [size];
-        Arrays.fill(stackArray,"-1");
+        stackSize = size;
+        stackArray = new String[size];
+        Arrays.fill(stackArray, "-1");
     }
 
-    private void push(String input){
-        if (topOfStack+1<stackSize) {
-        topOfStack++;
-        stackArray[topOfStack]=input;
-        }else {
+    public static void main(String[] args) {
+        TheStack theStack = new TheStack(10);
+        theStack.push("10");
+        theStack.push("15");
+        theStack.peek();
+        theStack.pop();
+        theStack.pushMany(MULTIPLE_VALUES);
+
+        theStack.displayTheStack();
+
+        theStack.popAll();
+        theStack.displayTheStack();
+
+    }
+
+    private void push(String input) {
+        if (topOfStack + 1 < stackSize) {
+            topOfStack++;
+            stackArray[topOfStack] = input;
+        } else {
             System.out.println("Sorry But the Stack is Full");
         }
         displayTheStack();
-        System.out.println("Push " +input +" Was Added to");
-        }
+        System.out.println("Push " + input + " Was Added to");
+    }
 
-
-     private void pop(){
-        if(topOfStack>=0){
+    private void pop() {
+        if (topOfStack >= 0) {
             displayTheStack();
-            System.out.println("POP "+stackArray[topOfStack]+" Was Removed From the Stack\n");
-            stackArray[topOfStack]="-1";
+            System.out.println("POP " + stackArray[topOfStack] + " Was Removed From the Stack\n");
+            stackArray[topOfStack] = "-1";
             topOfStack--;
-        }else {
+        } else {
             displayTheStack();
             System.out.println("Sorry but the Stack is Empty");
         }
-     }
+    }
 
-     private void peek(){
-         System.out.println("PEEK " + stackArray[topOfStack] +" Is at the Top of the Stack\n");
-     }
+    private void peek() {
+        System.out.println("PEEK " + stackArray[topOfStack] + " Is at the Top of the Stack\n");
+    }
 
-     private void pushMany(String multipleValues){
-         String[] tempString = multipleValues.split(" ");
-         for (String aTempString : tempString) {
-             push(aTempString);
-         }
-     }
-        private void popAll(){
-         for (int i = topOfStack;i>=0;i--){
-            pop();
-         }
+    private void pushMany(String multipleValues) {
+        String[] tempString = multipleValues.split(" ");
+        for (String aTempString : tempString) {
+            push(aTempString);
         }
+    }
 
-    public void popDisplayAll(){
+    private void popAll() {
+        for (int i = topOfStack; i >= 0; i--) {
+            pop();
+        }
+    }
+
+    public void popDisplayAll() {
 
         StringBuilder theReverse = new StringBuilder();
 
-        for(int i = topOfStack; i >= 0; i--){
+        for (int i = topOfStack; i >= 0; i--) {
 
             theReverse.append(stackArray[i]);
 
@@ -82,58 +98,38 @@ public class TheStack {
 
     }
 
+    private void displayTheStack() {
 
-
-
-    private void displayTheStack(){
-
-        for(int n = 0; n < 61; n++)System.out.print("-");
+        for (int n = 0; n < 61; n++) System.out.print("-");
 
         System.out.println();
 
-        for(int n = 0; n < stackSize; n++){
+        for (int n = 0; n < stackSize; n++) {
 
-            System.out.format("| %2s "+ " ", n);
+            System.out.format("| %2s " + " ", n);
 
         }
 
         System.out.println("|");
 
-        for(int n = 0; n < 61; n++)System.out.print("-");
+        for (int n = 0; n < 61; n++) System.out.print("-");
 
         System.out.println();
 
-        for(int n = 0; n < stackSize; n++){
+        for (int n = 0; n < stackSize; n++) {
 
 
+            if (stackArray[n].equals("-1")) System.out.print("|     ");
 
-            if(stackArray[n].equals("-1")) System.out.print("|     ");
-
-            else System.out.print(String.format("| %2s "+ " ", stackArray[n]));
+            else System.out.print(String.format("| %2s " + " ", stackArray[n]));
 
         }
 
         System.out.println("|");
 
-        for(int n = 0; n < 61; n++)System.out.print("-");
+        for (int n = 0; n < 61; n++) System.out.print("-");
 
         System.out.println();
-
-    }
-
-
-    public static void main(String[] args) {
-        TheStack theStack = new TheStack(10) ;
-        theStack.push("10");
-        theStack.push("15");
-        theStack.peek();
-        theStack.pop();
-        theStack.pushMany(MULTIPLE_VALUES);
-
-        theStack.displayTheStack();
-
-        theStack.popAll();
-        theStack.displayTheStack();
 
     }
 }

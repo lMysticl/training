@@ -46,14 +46,16 @@ public class MonitorExample {
                 }
             });
             thread.start();
-            while (thread.getState() != Thread.State.WAITING);
+            while (thread.getState() != Thread.State.WAITING) ;
             System.out.println("Ok!");
             thread.interrupt();
         }
     }
+
     //Демонстрация нахождения в blocked-set:
     public static class ExampleStateBlocking {
         private static Object lock = new Object();
+
         public static void main(String[] args) throws InterruptedException {
             Thread thread = new Thread(new Runnable() {
                 public void run() {
@@ -65,15 +67,16 @@ public class MonitorExample {
                 }
             });
             thread.start();
-            while (thread.getState() != Thread.State.WAITING);
+            while (thread.getState() != Thread.State.WAITING) ;
             synchronized (lock) {
                 lock.notify();
-                while (thread.getState() != Thread.State.BLOCKED);
+                while (thread.getState() != Thread.State.BLOCKED) ;
                 System.out.println("Ok!");
             }
             thread.interrupt();
         }
     }
+
     //Технический класс:
     public static class MyRunnable implements Runnable {
         private final Object lock;
@@ -94,7 +97,7 @@ public class MonitorExample {
         }
     }
 
-//Демонстрация порядка выбора по notify (у меня вывело " 0 1 2 3 4 5 6 7 8 9")
+    //Демонстрация порядка выбора по notify (у меня вывело " 0 1 2 3 4 5 6 7 8 9")
     public static class ExampleNotifyOrder {
         private static Object lock = new Object();
         private static BlockingQueue<String> queue = new LinkedBlockingQueue<String>();

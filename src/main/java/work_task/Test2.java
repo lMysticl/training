@@ -18,8 +18,8 @@ public class Test2 {
         Arrays.sort(A);
 
         for (int p = 0; p < len - 2; p++) {
-            for (int q = p+1; q < len - 1; q++) {
-                for (int r = q+1; r < len; r++) {
+            for (int q = p + 1; q < len - 1; q++) {
+                for (int r = q + 1; r < len; r++) {
                     if (isTriangle(A[p], A[q], A[r])) {
                         int perimeter = A[p] + A[q] + A[r];
                         if (perimeter > result) {
@@ -34,9 +34,6 @@ public class Test2 {
     }
 
 
-
-
-
     public static void main(String[] args) {
         int size = 10000;
         int max = 10000;
@@ -49,9 +46,8 @@ public class Test2 {
         generator.nextInt(max);
 
 
-        for (int i = 0; i<1000; i++)
-        {
-            array [i] = generator.nextInt(max);
+        for (int i = 0; i < 1000; i++) {
+            array[i] = generator.nextInt(max);
         }
         solution(array);
     }

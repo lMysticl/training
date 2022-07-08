@@ -2,6 +2,7 @@ package two_pointers;
 
 import java.io.IOException;
 import java.util.Stack;
+
 /*LeetCode – Evaluate Reverse Polish Notation
 
 Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, /. Each operand may be an integer or another expression. For example:
@@ -11,7 +12,7 @@ Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid
   */
 public class EvaluateReversePolishNotationStack_1_1 {
     public static void main(String[] args) throws IOException {
-        String[] tokens = new String[] { "2", "1", "+", "3", "*" };
+        String[] tokens = new String[]{"2", "1", "+", "3", "*"};
         System.out.println(evalRPN(tokens));
         System.out.println(evalRPN2(tokens));
     }
@@ -49,6 +50,7 @@ public class EvaluateReversePolishNotationStack_1_1 {
 
         return returnValue;
     }
+
     private static int evalRPN2(String[] tokens) {
 
         int returnValue = 0;
@@ -57,25 +59,25 @@ public class EvaluateReversePolishNotationStack_1_1 {
 
         Stack<String> stack = new Stack<String>();
 
-        for(String t : tokens){
-            if(!operators.contains(t)){
+        for (String t : tokens) {
+            if (!operators.contains(t)) {
                 stack.push(t);
-            }else{
+            } else {
                 int a = Integer.valueOf(stack.pop());
                 int b = Integer.valueOf(stack.pop());
                 int index = operators.indexOf(t);
-                switch(index){
+                switch (index) {
                     case 0:
-                        stack.push(String.valueOf(a+b));
+                        stack.push(String.valueOf(a + b));
                         break;
                     case 1:
-                        stack.push(String.valueOf(b-a));
+                        stack.push(String.valueOf(b - a));
                         break;
                     case 2:
-                        stack.push(String.valueOf(a*b));
+                        stack.push(String.valueOf(a * b));
                         break;
                     case 3:
-                        stack.push(String.valueOf(b/a));
+                        stack.push(String.valueOf(b / a));
                         break;
                 }
             }

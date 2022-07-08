@@ -23,6 +23,7 @@ public class Node<T extends Comparable<T>> {
             right.add(value);
         }
     }
+
     public void addSort(T value) {
         if (this.value.compareTo(value) == -1) {
             if (left == null) {
@@ -56,7 +57,7 @@ public class Node<T extends Comparable<T>> {
         return false;
     }
 
-    public boolean isLeaf(){
+    public boolean isLeaf() {
         return left == null && right == null;
     }
 

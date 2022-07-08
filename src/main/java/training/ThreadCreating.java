@@ -4,18 +4,13 @@ package training;
 import java.util.concurrent.*;
 
 //extends Thread or implements Runnable
-public class ThreadCreating extends Thread implements Runnable,Callable {
+public class ThreadCreating extends Thread implements Runnable, Callable {
 
 
-                                                                                    // (1)
-    private static void threadCreating(){
-         Thread thread = new Thread();
-            thread.isAlive();
-    }
-
-    @Override
-    public void run() {
-        System.out.println("Hello from a thread!");                                 // (2)
+    // (1)
+    private static void threadCreating() {
+        Thread thread = new Thread();
+        thread.isAlive();
     }
 
     public static void main(String[] args) {
@@ -33,8 +28,8 @@ public class ThreadCreating extends Thread implements Runnable,Callable {
         ExecutorService executorService = Executors.newFixedThreadPool(5); //(6)
 
         //создать ExecutorService на базе пула из пяти потоков
-           ExecutorService es1 = Executors.newFixedThreadPool(5);
-           //поместить задачу в очередь на выполнение
+        ExecutorService es1 = Executors.newFixedThreadPool(5);
+        //поместить задачу в очередь на выполнение
 //           Future<String> f1 = es1.submit(new CallableSample());
 //           while(!f1.isDone()) {
 //                   //подождать пока задача не выполнится
@@ -49,6 +44,10 @@ public class ThreadCreating extends Thread implements Runnable,Callable {
 
     }
 
+    @Override
+    public void run() {
+        System.out.println("Hello from a thread!");                                 // (2)
+    }
 
     @Override
     public Object call() throws Exception {

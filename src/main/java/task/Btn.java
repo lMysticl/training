@@ -1,6 +1,6 @@
 package task;
 
-public class Btn implements Comparable<Btn>{
+public class Btn implements Comparable<Btn> {
     private int val;
     private Btn left;
     private Btn right;

@@ -14,6 +14,12 @@ public class Element {
         this.age = age;
     }
 
+    public static Collection<Element> filterElements(Collection<Element> elements) {
+        return elements.stream()
+                .filter(e -> e.age > 20)
+                .collect(Collectors.toMap(Element::getNum, el -> el, (e1, e2) -> e1)).values();
+    }
+
     public int getNum() {
         return num;
     }
@@ -53,11 +59,5 @@ public class Element {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
-    }
-
-    public static Collection<Element> filterElements(Collection<Element> elements) {
-        return elements.stream()
-                .filter( e -> e.age > 20)
-                .collect(Collectors.toMap(Element::getNum, el -> el, (e1, e2) -> e1)).values();
     }
 }

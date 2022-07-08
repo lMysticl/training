@@ -4,7 +4,7 @@ package multithreading;
 public class BusyWaitVolotile {
 
 
-    private  static int counter;
+    private static int counter;
     private volatile static boolean finish1;
     private volatile static boolean finish2;
 
@@ -20,7 +20,7 @@ public class BusyWaitVolotile {
 
                     //counter++;
                 }
-                finish1=true;
+                finish1 = true;
             }
 
 
@@ -31,26 +31,26 @@ public class BusyWaitVolotile {
             public void run() {
                 for (int i = 0; i < 10_000_000; i++) {
                     inc();
-                  //  counter++;
+                    //  counter++;
                 }
-                finish2=true;
+                finish2 = true;
             }
         }).start();
-        while(!finish1||!finish2);
+        while (!finish1 || !finish2) ;
         System.out.println(counter);
     }
 
     //Должен обладать свойствами атомарности.Что бы передним никто не влез.(synchronized)
     private synchronized static void inc() {
-        int tmp= counter;
-        tmp =tmp +1;
-        counter=tmp;
+        int tmp = counter;
+        tmp = tmp + 1;
+        counter = tmp;
     }
 
     //Lost update Встречается в базах-данных.
     private /*synchronized*/ static void incSHOW() {
-        int tmp= counter;
-        tmp =tmp +1;
-        counter=tmp;
+        int tmp = counter;
+        tmp = tmp + 1;
+        counter = tmp;
     }
 }

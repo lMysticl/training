@@ -6,16 +6,16 @@ package work_task;
 public class Fact {
 
 
-    private static int fact1(int num){
+    private static int fact1(int num) {
 
-        return (num == 0) ? 1 : num * fact1 (num - 1);
+        return (num == 0) ? 1 : num * fact1(num - 1);
     }
 
-    private static int fact2(int num){
+    private static int fact2(int num) {
 
-        int fact=1;
-        for (int i=2; i<=num;i++)
-             fact*=i;
+        int fact = 1;
+        for (int i = 2; i <= num; i++)
+            fact *= i;
         return fact;
     }
 
@@ -25,5 +25,5 @@ public class Fact {
 
     }
 
-
 }
+

@@ -4,7 +4,7 @@ package multithreading;
 public class BusyWaitSleep {
 
 
-    private volatile static boolean in=false;
+    private volatile static boolean in = false;
 
     public static void main(String[] args) {
         final Object monitor = new Object();
@@ -15,7 +15,7 @@ public class BusyWaitSleep {
             public void run() {
                 //поток будет заблокирован на попытке захватить монитор
                 synchronized (monitor) {
-                  in =true;
+                    in = true;
                     try {
                         //Поток не отпускает монитоор
                         Thread.sleep(Long.MAX_VALUE);
@@ -24,9 +24,9 @@ public class BusyWaitSleep {
             }
         }).start();
         System.out.println("A");
-        while (!in);//spin lock /busy waiting
+        while (!in) ;//spin lock /busy waiting
         System.out.println("B");
-        synchronized (monitor){
+        synchronized (monitor) {
             System.out.println("C");
         }
     }

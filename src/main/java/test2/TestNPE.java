@@ -12,7 +12,7 @@ public class TestNPE {
     }
 
     public static void main(String[] args) {
-       Test test = new Test();
-        TestNPE.handle(null,"d");
+        Test test = new Test();
+        TestNPE.handle(null, "d");
     }
 }

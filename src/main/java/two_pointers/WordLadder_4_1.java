@@ -1,6 +1,7 @@
 package two_pointers;
 
 import java.util.*;
+
 /*LeetCode – Median of Two Sorted Arrays (Java)
 
 There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
@@ -15,8 +16,8 @@ For normal cases(all other cases), we need to move the pointer at the pace of ha
 public class WordLadder_4_1 {
 
     public static void main(String[] args) {
-        Solution solution= new Solution();
-        Set<String> stringSet =new HashSet<String>();
+        Solution solution = new Solution();
+        Set<String> stringSet = new HashSet<String>();
         stringSet.add("hot");
         stringSet.add("dot");
         stringSet.add("dog");
@@ -26,12 +27,12 @@ public class WordLadder_4_1 {
 
     }
 
-    static class WordNode{
+    static class WordNode {
         String word;
         int numSteps;
         WordNode pre;
 
-        WordNode(String word, int numSteps, WordNode pre){
+        WordNode(String word, int numSteps, WordNode pre) {
             this.word = word;
             this.numSteps = numSteps;
             this.pre = pre;
@@ -55,21 +56,21 @@ public class WordLadder_4_1 {
 
             int preNumSteps = 0;
 
-            while(!queue.isEmpty()){
+            while (!queue.isEmpty()) {
                 WordNode top = queue.remove();
                 String word = top.word;
                 int currNumSteps = top.numSteps;
 
-                if(word.equals(end)){
-                    if(minStep == 0){
+                if (word.equals(end)) {
+                    if (minStep == 0) {
                         minStep = top.numSteps;
                     }
 
-                    if(top.numSteps == minStep && minStep !=0){
+                    if (top.numSteps == minStep && minStep != 0) {
                         //nothing
                         ArrayList<String> t = new ArrayList<String>();
                         t.add(top.word);
-                        while(top.pre !=null){
+                        while (top.pre != null) {
                             t.add(0, top.pre.word);
                             top = top.pre;
                         }
@@ -79,27 +80,27 @@ public class WordLadder_4_1 {
 
                 }
 
-                if(preNumSteps < currNumSteps){
+                if (preNumSteps < currNumSteps) {
                     unvisited.removeAll(visited);
                 }
 
                 preNumSteps = currNumSteps;
 
                 char[] arr = word.toCharArray();
-                for(int i=0; i<arr.length; i++){
-                    for(char c='a'; c<='z'; c++){
+                for (int i = 0; i < arr.length; i++) {
+                    for (char c = 'a'; c <= 'z'; c++) {
                         char temp = arr[i];
-                        if(arr[i]!=c){
-                            arr[i]=c;
+                        if (arr[i] != c) {
+                            arr[i] = c;
                         }
 
                         String newWord = new String(arr);
-                        if(unvisited.contains(newWord)){
-                            queue.add(new WordNode(newWord, top.numSteps+1, top));
+                        if (unvisited.contains(newWord)) {
+                            queue.add(new WordNode(newWord, top.numSteps + 1, top));
                             visited.add(newWord);
                         }
 
-                        arr[i]=temp;
+                        arr[i] = temp;
                     }
                 }
 

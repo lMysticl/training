@@ -1,16 +1,24 @@
 package work_task;
 
+interface f {
+    final static Integer d = 10;
+
+    static void m() {
+        System.out.println("hello");
+    }
+}
+
 /**
  * @author Pavel Putrenkov
  */
-public class work_task implements f{
+public class work_task implements f {
 
 
-    static int  F1(int a, int b) {
-        if (a > b )
-        return F1(a - b, b) + 1;
-    else
-        return 0;
+    static int F1(int a, int b) {
+        if (a > b)
+            return F1(a - b, b) + 1;
+        else
+            return 0;
     }
 
     static int F2(int a, int b) {
@@ -22,19 +30,11 @@ public class work_task implements f{
         return Result;
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         System.out.println((F1(F2(5, 4) + 2, 7)));
 
         f.m();
     }
 
-}
-
-
-interface f{
-   final static Integer d =10;
-     static  void   m(){
-        System.out.println("hello");
-    }
 }
