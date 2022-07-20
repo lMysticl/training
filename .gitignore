@@ -29,9 +29,8 @@ target/
 .idea/dataSources.local.xml
 .idea/inspectionProfiles/
 lib/
-src/main/java/collections/hashset/
-src/main/java/collections/the_list/
-src/main/java/collections/the_tree/
-src/resources/test/task/AbstractSample.java
-src/resources/test/task/StreamSample.java
-java
+
+
+
+.idea/dataSources/a315b52d-5d79-4664-bf6c-dda12a2554fa/
+.idea/jarRepositories.xml
